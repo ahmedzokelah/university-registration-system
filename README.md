@@ -1,1 +1,0 @@
-# university-registration-system
