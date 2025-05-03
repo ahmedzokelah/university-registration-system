@@ -59,6 +59,12 @@ public class Linkedlist {
                 case 14:
                     checkStudentStatus();
                     break;
+                    case 15:
+                    sortStudentCourses();
+                    break;
+                case 16:
+                    sortCourseStudents();
+                    break;
                 case 0:
                     running = false;
                     System.out.println("Exiting system...");
@@ -86,6 +92,8 @@ public class Linkedlist {
         System.out.println("12. Redo Last Action");
         System.out.println("13. Check Course Availability");
         System.out.println("14. Check Student Status");
+        System.out.println("15. Sort Student's Courses");
+        System.out.println("16. Sort Course's Students");
         System.out.println("0. Exit");
     }
 
@@ -95,6 +103,26 @@ public class Linkedlist {
             scanner.next(); // discard invalid input
         }
         return scanner.nextInt();
+    }
+      private static void sortStudentCourses() {
+        System.out.print("Enter student ID to sort courses: ");
+        int studentId = getIntInput();
+        university.sort_courses_in_student(studentId);
+        System.out.println("Courses sorted for student " + studentId);
+        
+        // Display the sorted courses
+        System.out.println("Sorted courses:");
+        university.display_student_courses(studentId);
+    }
+      private static void sortCourseStudents() {
+        System.out.print("Enter course ID to sort students: ");
+        int courseId = getIntInput();
+        university.sort_students_in_course(courseId);
+        System.out.println("Students sorted for course " + courseId);
+        
+        // Display the sorted students
+        System.out.println("Sorted students:");
+        university.display_course_students(courseId);
     }
 
     private static void addStudent() {
